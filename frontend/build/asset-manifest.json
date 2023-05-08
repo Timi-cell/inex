@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/static/css/main.ec0b992e.css",
+    "main.js": "/static/js/main.72e0f071.js",
+    "static/media/dollar.gif": "/static/media/dollar.a162bc8f25c856c76845.gif",
+    "static/media/wallet.png": "/static/media/wallet.94d6c09eb34753489fdc.png",
+    "index.html": "/index.html",
+    "main.ec0b992e.css.map": "/static/css/main.ec0b992e.css.map",
+    "main.72e0f071.js.map": "/static/js/main.72e0f071.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ec0b992e.css",
+    "static/js/main.72e0f071.js"
+  ]
+}

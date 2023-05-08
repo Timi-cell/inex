@@ -1,0 +1,41 @@
+@use "../partials/partial";
+
+.header {
+  @include partial.flex;
+  background-color: #030b6b;
+  color: var(--white);
+
+  .logo {
+    font-size: 3rem;
+    font-weight: 600;
+  }
+  .link {
+    border-radius: 0.5rem;
+    padding: 0.6rem 1rem;
+    outline: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .content {
+    @include partial.flex($gap: 2rem);
+    list-style: none;
+    font-weight: 500;
+    cursor: pointer;
+    .blue-link {
+      color: #030b6b;
+      background-color: var(--white);
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .header {
+    .logo {
+      font-size: 3rem;
+    }
+    .content {
+      font-size: 1.85rem;
+    }
+  }
+}

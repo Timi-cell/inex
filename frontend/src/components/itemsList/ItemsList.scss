@@ -1,0 +1,75 @@
+@use "../partials/partial";
+
+.items-list {
+  background-color: var(--white);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 2.5rem;
+  table {
+    background-color: var(--white);
+    border-collapse: collapse;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    th,
+    td {
+      padding: 1.5rem;
+      border-bottom: 1px solid var(--grey);
+      text-align: left;
+      height: 10rem;
+
+      div {
+        @include partial.flex;
+      }
+    }
+
+    td:first-child {
+      width: 20rem;
+    }
+    td:last-child {
+      @include partial.flex;
+    }
+    tr:hover {
+      background-color: var(--blue);
+      color: var(--white);
+    }
+  }
+  .pagination {
+    @include partial.flex($justify: center);
+    list-style: none;
+    margin: 2.5rem 0;
+    font-size: 1rem;
+  }
+
+  .pagination .page-num {
+    padding: 1rem;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    outline: none;
+    border: 1px solid #eee;
+    margin: 0.1rem;
+  }
+
+  .pagination .page-num:hover {
+    color: #fff;
+    background-color: var(--blue);
+  }
+  .activePage {
+    color: #fff;
+    background-color: var(--blue);
+  }
+}
+
+@media screen and (max-width: 735px) {
+  .items-list {
+    font-size: 1.7rem !important;
+    table {
+      td:last-child {
+        @include partial.flex($dir: column);
+      }
+    }
+    .pagination {
+      font-size: 1.7rem !important;
+    }
+  }
+}

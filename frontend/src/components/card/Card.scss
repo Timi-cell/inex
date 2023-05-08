@@ -1,0 +1,97 @@
+@use "../partials/partial";
+
+.card {
+  @include partial.animate;
+  text-align: center;
+  background-color: #fff;
+  color: var(--blue);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  padding: 2rem 1.5rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 35rem;
+  transform: translate(-50%, -50%);
+  h1 {
+    font-size: 3rem;
+  }
+  input[type="email"],
+  input[type="text"] {
+    @include partial.input;
+  }
+  input[type="email"]:focus,
+  input[type="text"]:focus {
+    border-bottom: 3px solid var(--blue);
+  }
+
+  .password {
+    @include partial.flex($gap: 0);
+    width: 100%;
+    margin-top: 2rem;
+    border: 0.5px solid #eee;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    height: 4.1rem;
+    input[type="password"],
+    input[type="text"] {
+      outline: none;
+      border: none;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+    }
+    input[type="text"]:focus {
+      border-bottom: none;
+    }
+    span {
+      margin: 0;
+    }
+  }
+
+  button {
+    margin-top: 2rem;
+    width: 100%;
+  }
+
+  #forgot {
+    text-align: right;
+    color: var(--red);
+    margin-top: 1rem;
+  }
+
+  span {
+    @include partial.flex($gap: 0);
+    margin-top: 1rem;
+    color: #000000da;
+    p {
+      @include partial.pText($width: auto, $fontSize: 1.5rem);
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    width: 100%;
+
+    h1 {
+      font-size: 3rem;
+    }
+    input {
+      font-size: 1.7rem;
+    }
+    form {
+      button {
+        font-size: 1.7rem;
+      }
+    }
+    span {
+      p {
+        font-size: 1.7rem;
+      }
+    }
+    #forgot {
+      font-size: 1.8rem;
+    }
+  }
+}

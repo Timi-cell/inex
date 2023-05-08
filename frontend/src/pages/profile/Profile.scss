@@ -1,0 +1,199 @@
+@use "../../components/partials/partial";
+
+.profile,
+.editprofile {
+  .profile-content {
+    @include partial.flex($justify: flex-start, $gap: 3rem);
+    p,
+    button {
+      margin: 1.5rem 0;
+    }
+    .info {
+      background-color: var(--white);
+      padding: 1rem 2rem;
+      width: 45rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      border-radius: 0.5rem;
+      span {
+        display: block;
+        margin-top: 1rem;
+        line-break: anywhere;
+      }
+    }
+    .buttons {
+      @include partial.flex($justify: flex-start);
+    }
+  }
+  input[type="file"] {
+    display: none;
+  }
+  img {
+    width: 40rem;
+    height: 40rem;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .changepass {
+    background-color: #fff;
+    padding: 1rem;
+    width: 45rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    .password {
+      @include partial.flex($gap: 0);
+      margin-top: 2rem;
+      border: 0.5px solid #eee;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      height: 5rem;
+      input[type="password"],
+      input[type="text"] {
+        outline: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+      }
+      input[type="text"]:focus {
+        border-bottom: none;
+      }
+      span {
+        margin: 0;
+      }
+    }
+  }
+}
+
+.editprofile {
+  .editprofilecontent {
+    @include partial.flex($justify: flex-start, $gap: 3rem);
+    .editphoto {
+      @include partial.flex($dir: column, $gap: 1.5rem);
+      img {
+        width: 40rem;
+        height: 40rem;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+    }
+    form {
+      div {
+        margin-top: 2rem;
+      }
+    }
+  }
+
+  input {
+    @include partial.input($width: 30rem, $mTop: 0.5rem);
+  }
+}
+
+@media screen and (max-width: 970px) {
+  .editprofile {
+    .editprofilecontent {
+      margin-top: 3rem;
+      @include partial.flex($dir: column, $gap: 2rem);
+    }
+  }
+}
+
+@media screen and (max-width: 890px) {
+  .profile {
+    .profile-content {
+      margin-top: 3rem;
+      @include partial.flex($dir: column, $align: flex-start, $gap: 2rem);
+    }
+  }
+  .profile,
+  .editprofile {
+    font-size: 1.8rem;
+    input,
+    button {
+      font-size: 1.8rem;
+    }
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .editprofile {
+    .editprofilecontent {
+      form {
+        width: 100%;
+      }
+    }
+    input {
+      @include partial.input($width: 100% !important, $mTop: 0.5rem);
+    }
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .profile,
+  .editprofile {
+    .profile-content {
+      .info {
+        width: 100%;
+      }
+      img {
+        width: 33rem;
+        height: 33rem;
+      }
+    }
+    .editprofilecontent {
+      .editphoto {
+        width: 100%;
+        img {
+          width: 33rem;
+          height: 33rem;
+        }
+      }
+    }
+    .changepass {
+      width: 100%;
+      button {
+        font-size: 1.8rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 366px) {
+  .profile,
+  .editprofile {
+    .profile-content {
+      img {
+        width: 28rem;
+        height: 28rem;
+      }
+    }
+    .editprofilecontent {
+      .editphoto {
+        width: 100%;
+        img {
+          width: 28rem;
+          height: 28rem;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 306px) {
+  .profile,
+  .editprofile {
+    .profile-content {
+      img {
+        width: 20rem;
+        height: 20rem;
+      }
+    }
+    .editprofilecontent {
+      .editphoto {
+        width: 100%;
+        img {
+          width: 20rem;
+          height: 20rem;
+        }
+      }
+    }
+  }
+}

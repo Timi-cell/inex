@@ -1,0 +1,60 @@
+@use "../partials/partial";
+
+.topbar {
+  @include partial.flex;
+  .icon {
+    display: none;
+  }
+  padding: 2rem;
+  border-bottom: 1px solid var(--blue);
+  .logo {
+    font-size: 3rem;
+    font-weight: 500;
+  }
+  .topbar-content {
+    @include partial.flex($gap: 3rem);
+  }
+}
+
+.active {
+  border-bottom: 3px solid var(--blue);
+}
+
+@media screen and (max-width: 550px) {
+  .topbar {
+    flex-wrap: wrap;
+    .icon {
+      display: block;
+    }
+    .logo {
+      font-size: 3.5rem;
+    }
+    .topbar-content {
+      display: none;
+    
+    }
+  }
+  .head {
+    @include partial.flex($align: flex-end);
+    flex-basis: 100%;
+  }
+  .mob {
+    display: block !important;
+    height: 0;
+    overflow: hidden;
+    text-align: right;
+    flex-grow: 2;
+    font-size: 2rem;
+    .mobLinks {
+      justify-content: right;
+      margin-top: 1rem;
+    }
+    button {
+      margin-top: 1rem;
+      font-size: 2rem;
+    }
+  }
+  .showMob {
+    height: 100%;
+  }
+}

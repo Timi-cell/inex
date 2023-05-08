@@ -1,0 +1,45 @@
+@use "../../components/partials/partial";
+
+.report {
+  div {
+    margin-top: 2rem;
+  }
+  label {
+    font-size: 2rem;
+  }
+  input,
+  textarea {
+    @include partial.input($width: 50rem, $mTop: 0.5rem);
+    line-height: 1.5;
+  }
+
+  input {
+    font-size: 2.1rem;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  input::placeholder {
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-transform: none;
+  }
+  button {
+    cursor: default;
+  }
+}
+
+@media screen and (max-width: 570px) {
+  .report {
+    font-size: 1.8rem;
+    label{
+      font-size: 1.8rem;
+    }
+    input,
+    textarea {
+      width: 100%;
+    }
+    textarea{
+      font-size: 1.8rem;
+    }
+  }
+}

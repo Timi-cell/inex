@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+:root {
+  --blue: rgba(0, 0, 193, 0.768);
+  --grey: #eee;
+  --white: #fff;
+  --red: red;
+  --green: green;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: var(--grey);
+  color: var(--blue);
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo,
+.logo a {
+  cursor: default;
+}
+
+.--rowFlex-left {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  gap: 1rem;
+  align-items: center;
+}
+.--btn {
+  border-radius: 0.5rem;
+  padding: 1rem;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+}
+.--btn-primary {
+  color: var(--white);
+  background-color: var(--blue);
+}
+
+.--btn-danger {
+  color: var(--white);
+  background-color: var(--red);
+}
+
+.blueText {
+  color: var(--blue);
+}
+
+.--mt1 {
+  margin-top: 1rem;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+textarea {
+  resize: none;
+}

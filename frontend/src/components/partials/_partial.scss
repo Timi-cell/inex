@@ -1,0 +1,61 @@
+@mixin flex($gap: 1rem, $dir: row, $justify: space-between, $align: center) {
+  display: flex;
+  flex-direction: $dir;
+  align-items: $align;
+  justify-content: $justify;
+  gap: $gap;
+}
+
+@mixin pText(
+  $width: 50%,
+  $fontSize: 2rem,
+  $fontWeight: 500,
+  $lineHeight: 1.5,
+  $pl: 0
+) {
+  width: $width;
+  font-size: $fontSize;
+  font-weight: $fontWeight;
+  line-height: $lineHeight;
+  padding-left: $pl;
+}
+
+@mixin fixed($bgColor: var(--grey)) {
+  position: fixed;
+  top: 0;
+  overflow: hidden;
+  background-color: $bgColor;
+  width: 100%;
+}
+
+@mixin animate() {
+  animation: forms 0.5s ease;
+}
+
+@keyframes forms {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@mixin input(
+  $display: block,
+  $width: 100%,
+  $mTop: 2rem,
+  $border: 0.5px solid #eee,
+  $bRadius: 0.5rem
+) {
+  border: $border;
+  border-radius: $bRadius;
+  outline: none;
+  padding: 1rem;
+  display: $display;
+  margin-top: $mTop;
+  width: $width;
+  transition: all 0.1s ease-in-out;
+  font-family: "Inter", sans-serif;
+}
+
