@@ -79,10 +79,27 @@ textarea {
   resize: none;
 }
 
-/* Styles for Toastify */
+.react-confirm-alert-body,
+.react-confirm-alert-button-group > button,
+.Toastify__toast-body {
+  font-family: "Inter", sans-serif !important;
+}
+/* Styles for Toastify and React-Confirm-Alert*/
 
 @media screen and (max-width: 768px) {
   .Toastify__toast-body {
+    font-size: 2rem !important;
+  }
+  .react-confirm-alert-body {
+    font-size: 1.85rem !important;
+  }
+  .react-confirm-alert-body > h1 {
+    font-size: 2.3rem !important;
+  }
+  .react-confirm-alert-body > h3 {
+    font-size: 2rem !important;
+  }
+  .react-confirm-alert-button-group > button {
     font-size: 2rem !important;
   }
 }
