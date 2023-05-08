@@ -13,10 +13,10 @@
     margin-right: auto;
     th,
     td {
-      padding: 1.5rem;
+      padding: 1rem;
       border-bottom: 1px solid var(--grey);
       text-align: left;
-      height: 10rem;
+      height: 11.1rem;
 
       div {
         @include partial.flex;

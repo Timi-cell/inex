@@ -25,20 +25,21 @@
   }
   button {
     cursor: default;
+    font-size: 2.1rem;
   }
 }
 
 @media screen and (max-width: 570px) {
   .report {
     font-size: 1.8rem;
-    label{
+    label {
       font-size: 1.8rem;
     }
     input,
     textarea {
       width: 100%;
     }
-    textarea{
+    textarea {
       font-size: 1.8rem;
     }
   }
