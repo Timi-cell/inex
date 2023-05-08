@@ -53,7 +53,7 @@ const ItemsList = ({ loadingStatus, items, deleteItem, editItem, message }) => {
                 <tr key={id}>
                   <td>{item.title}</td>
                   <td>{item.type}</td>
-                  <td>{`$${formatNumbers(item.value)}`}</td>
+                  <td>{`#${formatNumbers(item.value)}`}</td>
                   <td>{new Date(item.createdAt).toLocaleTimeString()}</td>
                   <td>
                     {new Date(item.updatedAt).toLocaleTimeString() ===

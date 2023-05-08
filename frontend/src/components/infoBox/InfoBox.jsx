@@ -14,7 +14,7 @@ const InfoBox = ({ title, value, color, icon }) => {
       <div>
         <h3>{title}</h3>
         <p>
-          {`$${value}`}
+          {`#${value}`}
         </p>
       </div>
     </div>
