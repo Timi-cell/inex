@@ -187,21 +187,21 @@ const Profile = () => {
   return (
     <div className="profile">
       {isLoading && <Loader />}
-      <h2>Profile</h2>
+      <h4>Profile</h4>
       <div className="profile-content --mt1">
         <img src={user.photo} alt="profilePic" />
         <div className="info">
-          <p>
-            Name <span>{user.name}</span>
-          </p>
-          <p>
-            Email <span>{user.email}</span>
-          </p>
-          <p>
-            Phone <span>{user.phone}</span>
-          </p>
-          <p>
-            Joined InEx.
+          <div>
+            <h4>Name</h4> <span>{user.name}</span>
+          </div>
+          <div>
+            <h4>Email</h4> <span>{user.email}</span>
+          </div>
+          <div>
+            <h4>Phone</h4> <span>{user.phone}</span>
+          </div>
+          <div>
+            <h4>Joined InEx On</h4>
             <span>
               {new Date(user.createdAt).toLocaleDateString("en-us", {
                 weekday: "long",
@@ -210,7 +210,7 @@ const Profile = () => {
                 day: "numeric",
               })}
             </span>
-          </p>
+          </div>
           <div className="buttons">
             <Link to="/editprofile">
               <button className="--btn --btn-primary">Edit Profile</button>
@@ -225,7 +225,7 @@ const Profile = () => {
         </div>
       </div>
       <div className="changepass --mt1">
-        <h2>Change Password</h2>
+        <h4>Change Password</h4>
         <form onSubmit={handleSubmit}>
           <div className="password">
             <input

@@ -16,7 +16,7 @@
       padding: 1rem;
       border-bottom: 1px solid var(--grey);
       text-align: left;
-      height: 11.1rem;
+      height: 6rem;
 
       div {
         @include partial.flex;
@@ -57,6 +57,18 @@
   .activePage {
     color: #fff;
     background-color: var(--blue);
+  }
+}
+
+@media screen and (max-width: 902px) {
+  .items-list {
+    table {
+      th,
+      td {
+        padding: 1.5rem !important;
+        height: 12rem !important;
+      }
+    }
   }
 }
 

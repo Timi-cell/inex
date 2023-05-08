@@ -78,3 +78,11 @@ input::-webkit-inner-spin-button {
 textarea {
   resize: none;
 }
+
+/* Styles for Toastify */
+
+@media screen and (max-width: 768px) {
+  .Toastify__toast-body {
+    font-size: 2rem !important;
+  }
+}
