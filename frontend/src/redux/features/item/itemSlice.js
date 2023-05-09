@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import itemService from "../../../services/itemService";
 import { toast } from "react-toastify";
+const currency = JSON.parse(localStorage.getItem("currency"));
 
 const initialState = {
   items: [],
@@ -9,6 +10,7 @@ const initialState = {
   totalExpenses: 0,
   totalBalance: 0,
   itemID: "",
+  userCurrency: currency ? currency : "",
 };
 
 // Add Item
@@ -125,6 +127,10 @@ const itemSlice = createSlice({
     SET_ITEM_ID(state, action) {
       state.itemID = action.payload;
     },
+    SET_CURRENCY(state, action) {
+      localStorage.setItem("currency", JSON.stringify(action.payload));
+      state.userCurrency = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(addItem.pending, (state) => {
@@ -188,6 +194,12 @@ const itemSlice = createSlice({
   },
 });
 
-export const { CALC_INC, CALC_EXP, CALC_BAL, SET_ITEM_ID, SET_ITEMS_INFO } =
-  itemSlice.actions;
+export const {
+  CALC_INC,
+  CALC_EXP,
+  CALC_BAL,
+  SET_ITEM_ID,
+  SET_ITEMS_INFO,
+  SET_CURRENCY,
+} = itemSlice.actions;
 export default itemSlice.reducer;

@@ -3,12 +3,14 @@ const asyncHandler = require("express-async-handler");
 
 // Add Item
 const addItem = asyncHandler(async (req, res) => {
-  const { title, type, value } = req.body;
+  const { title, type, value, currency } = req.body;
   if (!title || !type || !value) {
     res.status(400).json({ message: "Please fill in all required fields" });
   }
   const item = await Item.create({
     user: req.user._id,
+    userName: req.user.name,
+    currency,
     title,
     type,
     value,
@@ -17,10 +19,16 @@ const addItem = asyncHandler(async (req, res) => {
     createdAt: -1,
   });
   if (item) {
-    res.status(201).json({allItems, item});
+    res.status(201).json({ allItems, item });
   } else {
-    res.status(500).json({ message: "Internal Server Error" });
-    throw new Error("Internal Server Error");
+    res
+      .status(500)
+      .json({
+        message: "Please check your network connectivity OR refresh the page.",
+      });
+    throw new Error(
+      "Please check your network connectivity OR refresh the page."
+    );
   }
 });
 

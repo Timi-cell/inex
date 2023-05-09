@@ -7,6 +7,15 @@ const itemSchema = mongoose.Schema(
       required: true,
       ref: "User",
     },
+    userName: {
+      type: mongoose.Schema.Types.String,
+      required: true,
+      ref: "User",
+    },
+    currency: {
+      type: String,
+      required: [true, "Please choose a currency"],
+    },
     title: {
       type: String,
       required: [true, "Please enter a title"],

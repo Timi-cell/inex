@@ -6,7 +6,7 @@ import { SpinnerImg } from "../loader/Loader";
 import { formatNumbers } from "../../pages/dashboard/Dashboard";
 import ReactPaginate from "react-paginate";
 
-const ItemsList = ({ loadingStatus, items, deleteItem, editItem, message }) => {
+const ItemsList = ({ loadingStatus, items, deleteItem, editItem, message, currency }) => {
   // Begin Pagination
   const [currentItems, setCurrentItems] = useState([]);
   const [pageCount, setPageCount] = useState(0);
@@ -34,7 +34,7 @@ const ItemsList = ({ loadingStatus, items, deleteItem, editItem, message }) => {
           message ? (
             <h3>Item not found.</h3>
           ) : (
-            <p>No items added.</p>
+            <h3>No items added.</h3>
           )
         ) : (
           <table>
@@ -53,7 +53,7 @@ const ItemsList = ({ loadingStatus, items, deleteItem, editItem, message }) => {
                 <tr key={id}>
                   <td>{item.title}</td>
                   <td>{item.type}</td>
-                  <td>{`#${formatNumbers(item.value)}`}</td>
+                  <td>{`${currency}${formatNumbers(item.value)}`}</td>
                   <td>{new Date(item.createdAt).toLocaleTimeString()}</td>
                   <td>
                     {new Date(item.updatedAt).toLocaleTimeString() ===

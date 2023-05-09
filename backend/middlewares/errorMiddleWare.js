@@ -5,11 +5,17 @@ const errorHandler = (err, res, req, next) => {
   res.status(statusCode);
 
   // send the error message and stack in the form of json object to the response
-
-  res.json({
-    message: err.message,
-    stack: process.env.NODE_ENV === "development" ? err.stack : null,
-  });
+  if (statusCode === 500) {
+    res.json({
+      message: "Please check your network connectivity OR refresh the page.",
+      stack: process.env.NODE_ENV === "development" ? err.stack : null,
+    });
+  } else {
+    res.json({
+      message: err.message,
+      stack: process.env.NODE_ENV === "development" ? err.stack : null,
+    });
+  }
 };
 
 module.exports = errorHandler;

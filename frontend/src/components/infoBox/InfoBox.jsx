@@ -1,8 +1,7 @@
 import React from "react";
 import "./InfoBox.scss";
 
-
-const InfoBox = ({ title, value, color, icon }) => {
+const InfoBox = ({ title, value, color, icon, currency }) => {
   return (
     <div
       style={{
@@ -14,7 +13,7 @@ const InfoBox = ({ title, value, color, icon }) => {
       <div>
         <h3>{title}</h3>
         <p>
-          {`#${value}`}
+          {`${currency}${value}`}
         </p>
       </div>
     </div>

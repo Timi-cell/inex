@@ -138,6 +138,7 @@ const Profile = () => {
       dispatch(SET_ITEMS_INFO());
       dispatch(SET_IS_OPEN(false));
       localStorage.removeItem("name");
+      localStorage.removeItem("currency");
       toast.success(data.message, {
         position: toast.POSITION.TOP_LEFT,
       });

@@ -11,11 +11,16 @@
   }
 }
 
-@media screen and (max-width: 735px) {
+@media screen and (max-width: 815px) {
   .info-box {
     width: 100%;
+  }
+}
+
+@media screen and (max-width: 735px) {
+  .info-box {
     font-size: 1.7rem !important;
-    h3{
+    h3 {
       font-size: 2rem !important;
     }
   }
