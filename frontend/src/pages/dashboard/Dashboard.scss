@@ -16,11 +16,16 @@
   .add-item {
     @include partial.flex($gap: 0.5rem, $justify: center);
     margin-top: 3rem;
+    select {
+      background-color: var(--white);
+      color: var(--blue);
+      font-weight: 700;
+    }
   }
   input,
   select {
     @include partial.input($display: inline, $width: auto, $mTop: 0rem);
-    font-family: "Open Sans", sans-serif;
+    font-family: "Open Sans", sans-serif !important;
   }
   input:focus,
   select:focus,
@@ -96,6 +101,9 @@
         $align: flex-start,
         $dir: column
       );
+      select {
+        height: 5rem !important;
+      }
     }
   }
 }
