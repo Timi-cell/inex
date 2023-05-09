@@ -75,6 +75,9 @@
   }
   .refresh {
     @include partial.flex($gap: 0.2rem);
+    span{
+      font-size: 1.65rem;
+    }
   }
 }
 
@@ -83,6 +86,8 @@
     .top {
       select {
         width: auto !important;
+        height: 5rem !important;
+        font-size: 1.65rem;
       }
     }
     .boxes {
@@ -91,11 +96,19 @@
     input,
     select {
       @include partial.input($display: inline, $width: 100%, $mTop: 0rem);
+      font-size: 1.65rem !important;
     }
     .add-item {
+      select,
+      input,
+      button {
+        height: 5rem !important;
+        font-size: 1.65rem !important;
+      }
       .buttons {
         button {
           width: 12rem !important;
+          font-size: 1.6rem !important;
         }
       }
     }
@@ -108,7 +121,6 @@
       font-size: 1.6rem;
       @include partial.flex($dir: column);
       select {
-        height: 5rem !important;
         font-size: 1.6rem !important;
       }
     }
