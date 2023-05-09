@@ -82,7 +82,7 @@ const TopBar = () => {
           <h1 className="logo">InEx.</h1>
         </Link>
         <div className="icon">
-          <HiMenuAlt3 size={45} onClick={showNavBar} />
+          <HiMenuAlt3 size={40} onClick={showNavBar} />
         </div>
       </div>{" "}
       {/* className="topbar-content mob" */}

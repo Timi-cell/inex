@@ -11,6 +11,7 @@
   textarea {
     @include partial.input($width: 50rem, $mTop: 0.5rem);
     line-height: 1.5;
+    font-family: "Open Sans", sans-serif;
   }
 
   input {
@@ -31,19 +32,19 @@
 
 @media screen and (max-width: 570px) {
   .report {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     label {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
     }
     input,
     textarea {
       width: 100%;
     }
     textarea {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
     }
     button {
-      font-size: 1.8rem !important;
+      font-size: 1.6rem !important;
     }
   }
 }

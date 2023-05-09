@@ -1,4 +1,5 @@
-const errorHandler = (req, res, next, err) => {
+const asyncHandler = require("express-async-handler");
+const errorHandler = asyncHandler((req, res, next, err) => {
   // check if there is a status code else use 500
   const statusCode = res.statusCode ? res.statusCode : 500;
   // set the response code with the statuscode
@@ -10,6 +11,6 @@ const errorHandler = (req, res, next, err) => {
     message: err.message,
     stack: process.env.NODE_ENV === "development" ? err.stack : null,
   });
-};
+});
 
 module.exports = errorHandler;

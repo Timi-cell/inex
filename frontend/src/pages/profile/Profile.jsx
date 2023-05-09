@@ -187,7 +187,7 @@ const Profile = () => {
   return (
     <div className="profile">
       {isLoading && <Loader />}
-      <h4>Profile</h4>
+      <h2>Profile</h2>
       <div className="profile-content --mt1">
         <img src={user.photo} alt="profilePic" />
         <div className="info">

@@ -14,7 +14,9 @@
 @media screen and (max-width: 735px) {
   .info-box {
     width: 100%;
-
+    font-size: 1.7rem !important;
+    h3{
+      font-size: 2rem !important;
+    }
   }
-
 }

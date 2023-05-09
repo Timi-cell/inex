@@ -20,7 +20,7 @@
   input,
   select {
     @include partial.input($display: inline, $width: auto, $mTop: 0rem);
-    font-family: "Inter", sans-serif;
+    font-family: "Open Sans", sans-serif;
   }
   input:focus,
   select:focus,
@@ -47,6 +47,8 @@
 
     select {
       height: 5rem;
+      color: var(--white);
+      background-color: var(--blue);
     }
   }
   #name {
@@ -58,16 +60,12 @@
     margin-top: 1.5rem;
     text-align: center;
   }
-  select {
-    color: var(--white);
-    background-color: var(--blue);
-  }
 }
 
 @media screen and (max-width: 735px) {
   .dash {
     .top {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       @include partial.flex($dir: column);
     }
     input,
@@ -80,7 +78,7 @@
       }
       input,
       select {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
       }
     }
     .boxes {
@@ -90,7 +88,7 @@
       select,
       input,
       button {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
       }
       @include partial.flex(
         $gap: 0.5rem,

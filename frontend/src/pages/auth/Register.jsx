@@ -152,7 +152,7 @@ const registerForm = (
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="Name"
+          placeholder="Username"
           name="name"
           required
           onChange={handleChange}

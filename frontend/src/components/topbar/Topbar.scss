@@ -26,9 +26,9 @@
     .icon {
       display: block;
     }
-    .logo {
-      font-size: 3.5rem;
-    }
+    // .logo {
+    //   font-size: 3.5rem;
+    // }
     .topbar-content {
       display: none;
     }
@@ -43,14 +43,14 @@
     overflow: hidden;
     text-align: right;
     flex-grow: 2;
-    font-size: 2rem;
+    font-size: 1.6rem;
     .mobLinks {
       justify-content: right;
       margin-top: 1rem;
     }
     button {
       margin-top: 1rem;
-      font-size: 2rem;
+      font-size: 1.6rem;
     }
   }
   .showMob {

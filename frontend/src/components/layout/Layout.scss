@@ -1,6 +1,8 @@
 @use "../partials/partial";
 
+
 .layout {
+  font-family: "Open Sans", sans-serif !important;
   .children {
     padding: 2rem;
     h2 {
@@ -9,3 +11,12 @@
   }
 }
 
+@media screen and (max-width: 768px) {
+  .layout {
+    .children {
+      h2 {
+        font-size: 2.5rem !important;
+      }
+    }
+  }
+}
