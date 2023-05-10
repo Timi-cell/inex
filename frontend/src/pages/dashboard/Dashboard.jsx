@@ -178,6 +178,7 @@ const Dashboard = () => {
   const handleEdit = (item) => {
     buttonText = "Edit";
     setData({
+      currency: item.currency || data.currency,
       type: item.type || data.type,
       title: item.title || data.title,
       value: item.value || data.value,
