@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../../components/navigation/Header";
 import "./Home.scss";
-import HeroImg from "../../assets/images/wallet.png";
+// import HeroImg from "../../assets/images/money.png";
 import { ShowOnLogOut } from "../../components/hiddenLinks/HiddenLinks";
 import { Link } from "react-router-dom";
 
@@ -14,11 +14,15 @@ const Home = () => {
           <div>
             <h2>Welcome to InEx.</h2>
             <p>
-              Calculation & Tracking of Income and Expenses made easier with InEx.
+              Calculation & Tracking of Income and Expenses made easier with
+              InEx.
             </p>
           </div>
           <div className="mobileImg">
-            <img src={HeroImg} alt="a wallet" />
+            <img
+              src="https://res.cloudinary.com/dzqaqbrng/image/upload/v1683721857/money_sigbka.png"
+              alt="a wallet"
+            />
           </div>
           <div className="hero-content">
             <p>InEx can...</p>
@@ -46,7 +50,10 @@ const Home = () => {
           </ShowOnLogOut>
         </div>
         <div className="desktopImg">
-          <img src={HeroImg} alt="a wallet" />
+          <img
+            src="https://res.cloudinary.com/dzqaqbrng/image/upload/v1683721857/money_sigbka.png"
+            alt="a wallet"
+          />
         </div>
       </section>
     </div>

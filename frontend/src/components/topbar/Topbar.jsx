@@ -50,6 +50,7 @@ const TopBar = () => {
       dispatch(SET_ITEMS_INFO());
       dispatch(SET_IS_OPEN(false));
       localStorage.removeItem("name");
+      // localStorage.removeItem("currency");
       navigate("/login");
     } catch (error) {
       toast.error("Logout Unsuccessful!", {

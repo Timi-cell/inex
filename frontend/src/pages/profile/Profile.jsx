@@ -142,7 +142,7 @@ const Profile = () => {
       toast.success(data.message, {
         position: toast.POSITION.TOP_LEFT,
       });
-      navigate("/register");
+      navigate("/");
     } else {
       toast.error(data.message, {
         position: toast.POSITION.TOP_LEFT,

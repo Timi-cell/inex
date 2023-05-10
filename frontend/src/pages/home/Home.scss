@@ -33,6 +33,7 @@
   }
   .hero-end {
     @include partial.flex($gap: 0.5rem, $justify: left);
+    margin-top:2rem;
   }
 }
 

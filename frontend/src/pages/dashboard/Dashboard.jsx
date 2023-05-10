@@ -39,7 +39,7 @@ export const formatNumbers = (x) => {
 
 const Dashboard = () => {
   useRedirectLoggedOutUser("/login");
-  const [cur, setCur] = useState("");
+  // const [cur, setCur] = useState("");
   const [search, setSearch] = useState("");
   const [fValue, setfValue] = useState("");
   const dispatch = useDispatch();
@@ -65,7 +65,7 @@ const Dashboard = () => {
   };
   const [data, setData] = useState(initialState);
 
-  const { type, title, value } = data;
+  const { currency, type, title, value } = data;
 
   // const dateNow = () => {
   //   return new Date().toLocaleDateString("en-us", {
@@ -97,7 +97,7 @@ const Dashboard = () => {
       }
       return;
     } else {
-      setCur(value);
+      // setCur(value);
       setData({
         ...data,
         [name]: value,
@@ -110,11 +110,11 @@ const Dashboard = () => {
     dispatch(CALC_INC(items));
     dispatch(CALC_EXP(items));
     dispatch(CALC_BAL());
-    // if (totalBalance === 0) {
-    //   localStorage.removeItem("currency");
-    // } else {
-    //   dispatch(SET_CURRENCY(userCurrency));
-    // }
+    if (items.length > 0) {
+      dispatch(SET_CURRENCY(items[0].currency));
+    } else {
+      dispatch(SET_CURRENCY(currency));
+    }
   };
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -124,7 +124,7 @@ const Dashboard = () => {
     //   });
     //   return;
     // }
-    if (!userCurrency) {
+    if (!currency) {
       toast.error("Please choose a currency.", {
         position: toast.POSITION.TOP_LEFT,
       });
@@ -149,9 +149,9 @@ const Dashboard = () => {
       });
       return;
     }
-    console.log(data);
+    // console.log(data);
     dispatch(addItem(data));
-    dispatch(SET_CURRENCY(cur));
+    dispatch(SET_CURRENCY(currency));
     refreshPage();
     setData(initialState);
   };
@@ -211,6 +211,9 @@ const Dashboard = () => {
   };
   const handleRefresh = () => {
     refreshPage();
+    toast.success("List Refreshed.", {
+      position: toast.POSITION.TOP_LEFT,
+    });
   };
   useEffect(() => {
     dispatch(SEARCH_ITEMS({ search, items }));
@@ -224,12 +227,17 @@ const Dashboard = () => {
     if (loadingStatus === "idle") {
       dispatch(getItems());
     }
+    if (items.length > 0) {
+      dispatch(SET_CURRENCY(items[0].currency));
+    } else {
+      dispatch(SET_CURRENCY(currency));
+    }
+
     dispatch(SET_IS_OPEN(false));
-    dispatch(SET_CURRENCY(userCurrency));
     dispatch(CALC_INC(items));
     dispatch(CALC_EXP(items));
     dispatch(CALC_BAL());
-  }, [userCurrency, dispatch, items, loadingStatus]);
+  }, [currency, dispatch, items, loadingStatus]);
 
   return (
     <div className="dash">
@@ -240,7 +248,7 @@ const Dashboard = () => {
         {/* Pick a currency dropdown list*/}
         <select
           name="currency"
-          value={userCurrency}
+          value={currency}
           onChange={handleCurrencyChange}
         >
           <option value="">Choose default currency</option>
@@ -261,21 +269,21 @@ const Dashboard = () => {
           color="var(--green)"
           value={formatNumbers(totalIncome)}
           icon={<GiReceiveMoney size={35} />}
-          currency={userCurrency}
+          currency={currency}
         />
         <InfoBox
           title="Total Expenses"
           color="var(--red)"
           value={formatNumbers(totalExpenses)}
           icon={<GiPayMoney size={35} />}
-          currency={userCurrency}
+          currency={currency}
         />
         <InfoBox
           title="Balance"
           color="var(--blue)"
           value={formatNumbers(totalBalance)}
           icon={<MdAccountBalanceWallet size={35} />}
-          currency={userCurrency}
+          currency={currency}
         />
       </div>
       {/* <p id="warning">
@@ -342,9 +350,9 @@ const Dashboard = () => {
         {/* Filter */}
         <div>
           <select value={fValue} onChange={(e) => setfValue(e.target.value)}>
-            <option value="">Filter By Type</option>
-            <option value="Income">Income</option>
-            <option value="Expense">Expenses</option>
+            <option value="">All Types</option>
+            <option value="Income">Income Only</option>
+            <option value="Expense">Expenses Only</option>
           </select>
         </div>
       </div>
@@ -353,7 +361,7 @@ const Dashboard = () => {
           className="--btn --btn-primary --mt1 refresh"
           onClick={handleRefresh}
         >
-          <span>REFRESH</span>{" "}
+          <span>REFRESH LIST</span>{" "}
           <span>
             <BiRefresh size={25.5} />
           </span>
@@ -365,7 +373,7 @@ const Dashboard = () => {
         deleteItem={confirmDelete}
         editItem={handleEdit}
         message={message}
-        currency={userCurrency}
+        currency={currency}
       />
     </div>
   );
