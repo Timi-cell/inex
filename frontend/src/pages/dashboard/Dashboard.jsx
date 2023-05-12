@@ -43,7 +43,6 @@ const Dashboard = () => {
   const [search, setSearch] = useState("");
   const [fValue, setfValue] = useState("");
   const dispatch = useDispatch();
-
   const name = useSelector(selectName);
   // const isOpen = useSelector(selectIsOpen);
   const message = useSelector(selectMessage);
@@ -65,7 +64,7 @@ const Dashboard = () => {
   };
   const [data, setData] = useState(initialState);
 
-  const { currency, type, title, value } = data;
+  const {  type, title, value } = data;
 
   // const dateNow = () => {
   //   return new Date().toLocaleDateString("en-us", {
@@ -110,11 +109,12 @@ const Dashboard = () => {
     dispatch(CALC_INC(items));
     dispatch(CALC_EXP(items));
     dispatch(CALC_BAL());
-    if (items.length > 0) {
-      dispatch(SET_CURRENCY(items[0].currency));
-    } else {
-      dispatch(SET_CURRENCY(currency));
-    }
+    dispatch(SET_CURRENCY(userCurrency));
+    // if (items.length > 0) {
+    //   dispatch(SET_CURRENCY(items[0].currency));
+    // } else {
+    //   dispatch(SET_CURRENCY(currency));
+    // }
   };
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -124,7 +124,7 @@ const Dashboard = () => {
     //   });
     //   return;
     // }
-    if (!currency) {
+    if (!userCurrency) {
       toast.error("Please choose a currency.", {
         position: toast.POSITION.TOP_LEFT,
       });
@@ -151,7 +151,7 @@ const Dashboard = () => {
     }
     // console.log(data);
     dispatch(addItem(data));
-    dispatch(SET_CURRENCY(currency));
+    dispatch(SET_CURRENCY(userCurrency));
     refreshPage();
     setData(initialState);
   };
@@ -227,18 +227,23 @@ const Dashboard = () => {
   useEffect(() => {
     if (loadingStatus === "idle") {
       dispatch(getItems());
+      // dispatch(SET_CURRENCY(currency));
     }
+    // if (localStorage.getItem("currency") === null) {
+    //   dispatch(SET_CURRENCY(currency));
+    // }
     if (items.length > 0) {
+      console.log(items);
       dispatch(SET_CURRENCY(items[0].currency));
     } else {
-      dispatch(SET_CURRENCY(currency));
+      dispatch(SET_CURRENCY(""));
     }
-
     dispatch(SET_IS_OPEN(false));
     dispatch(CALC_INC(items));
     dispatch(CALC_EXP(items));
     dispatch(CALC_BAL());
-  }, [currency, dispatch, items, loadingStatus]);
+    // console.log(userCurrency)
+  }, [dispatch, items, loadingStatus]);
 
   return (
     <div className="dash">
@@ -249,7 +254,7 @@ const Dashboard = () => {
         {/* Pick a currency dropdown list*/}
         <select
           name="currency"
-          value={currency}
+          value={userCurrency}
           onChange={handleCurrencyChange}
         >
           <option value="">Choose default currency</option>
@@ -270,28 +275,42 @@ const Dashboard = () => {
           color="var(--green)"
           value={formatNumbers(totalIncome)}
           icon={<GiReceiveMoney size={35} />}
-          currency={currency}
+          currency={userCurrency}
         />
         <InfoBox
           title="Total Expenses"
           color="var(--red)"
           value={formatNumbers(totalExpenses)}
           icon={<GiPayMoney size={35} />}
-          currency={currency}
+          currency={userCurrency}
         />
         <InfoBox
           title="Balance"
           color="var(--blue)"
           value={formatNumbers(totalBalance)}
           icon={<MdAccountBalanceWallet size={35} />}
-          currency={currency}
+          currency={userCurrency}
         />
       </div>
-      {/* <p id="warning">
-        {totalBalance < 100
-          ? `Hello ${name}, you are spending more than you are earning!`
+      <p id="goodInfo">
+        {(totalExpenses / totalIncome) * 100 < 50
+          ? `Hey ${name}, your earnings are more than your expenses👍.`
           : ""}
-      </p> */}
+      </p>
+      <p id="warning">
+        {/* {totalBalance === 0 ? `Hey ${name}, you have no balance left.` : ""} */}
+        {(totalExpenses / totalIncome) * 100 === 50
+          ? `Hey ${name}, you have spent 50% of your income.`
+          : ""}
+
+        {(totalExpenses / totalIncome) * 100 > 50 &&
+        (totalExpenses / totalIncome) * 100 < 100
+          ? `Hey ${name}, you have spent more than 50% of your income.`
+          : ""}
+        {totalBalance < 0
+          ? `Hey ${name}, your expenses are more than your income.`
+          : ""}
+      </p>
 
       <form onSubmit={buttonText === "Add" ? handleSubmit : handleUpdate}>
         <div className="add-item">
@@ -320,18 +339,20 @@ const Dashboard = () => {
             onChange={handleChange}
             value={value}
           />
-          {/* Add/Edit button */}
-          <button type="submit" className="--btn --btn-primary">
-            {buttonText}
-          </button>
-          {/* Cancel Edit Button */}
-          {buttonText === "Edit" ? (
-            <button className="--btn --btn-danger" onClick={handleCancelEdit}>
-              Cancel Edit
+          <div className="buttons">
+            {/* Add/Edit button */}
+            <button type="submit" className="--btn --btn-primary">
+              {buttonText}
             </button>
-          ) : (
-            ""
-          )}
+            {/* Cancel Edit Button */}
+            {buttonText === "Edit" ? (
+              <button className="--btn --btn-danger edit" onClick={handleCancelEdit}>
+                Cancel Edit
+              </button>
+            ) : (
+              ""
+            )}
+          </div>
         </div>
       </form>
 
@@ -374,7 +395,7 @@ const Dashboard = () => {
         deleteItem={confirmDelete}
         editItem={handleEdit}
         message={message}
-        currency={currency}
+        currency={userCurrency}
       />
     </div>
   );

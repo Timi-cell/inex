@@ -20,6 +20,12 @@
   padding-left: $pl;
 }
 
+@mixin dashInfoText($color: var(--red)) {
+  color: $color;
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 2rem;
+}
 @mixin fixed($bgColor: var(--grey)) {
   position: fixed;
   top: 0;
@@ -58,4 +64,3 @@
   transition: all 0.1s ease-in-out;
   font-family: "Inter", sans-serif;
 }
-

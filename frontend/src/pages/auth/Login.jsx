@@ -3,7 +3,7 @@ import { BiLogIn } from "react-icons/bi";
 import Card from "../../components/card/Card";
 import { Link } from "react-router-dom";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
-import { useDispatch } from "react-redux";
+import {  useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { SET_LOGIN, SET_NAME } from "../../redux/features/auth/authSlice";
 import { toast } from "react-toastify";
@@ -21,7 +21,8 @@ const Login = () => {
     email: "",
     password: "",
   };
-
+  // let { userCurrency } = useSelector((state) => state.item);
+  // let { items } = useSelector((state) => state.item);
   const [formData, setFormData] = useState(initialState);
   const [isLoading, setIsLoading] = useState(false);
   const { email, password } = formData;
@@ -80,6 +81,13 @@ const Login = () => {
         dispatch(SET_LOGIN(true));
         dispatch(SET_NAME(data.name));
         dispatch(getItems());
+        // dispatch(SET_CURRENCY(userCurrency));
+        // if (items.length > 0) {
+        //   console.log(items[0].currency);
+        //   dispatch(SET_CURRENCY(items[0].currency));
+        // } else {
+        //   dispatch(SET_CURRENCY(""));
+        // }
         navigate("/dashboard");
       }
       setIsLoading(false);

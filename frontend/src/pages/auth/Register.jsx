@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { SET_LOGIN, SET_NAME } from "../../redux/features/auth/authSlice";
+import { SET_CURRENCY } from "../../redux/features/item/itemSlice";
 import { toast } from "react-toastify";
 import { registerUser, validateEmail } from "../../services/authService";
 import Loader from "../../components/loader/Loader";
@@ -24,6 +25,7 @@ const Register = () => {
     password: "",
     password2: "",
   };
+  // let {  userCurrency } = useSelector((state) => state.item);
 
   const [formData, setFormData] = useState(initialState);
   const [isLoading, setIsLoading] = useState(false);
@@ -105,6 +107,7 @@ const Register = () => {
       if (data) {
         dispatch(SET_LOGIN(true));
         dispatch(SET_NAME(data.name));
+        dispatch(SET_CURRENCY(""));
         navigate("/dashboard");
       }
       setIsLoading(false);

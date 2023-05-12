@@ -28,6 +28,7 @@
     }
     .buttons {
       @include partial.flex;
+      
     }
   }
   input,
@@ -69,13 +70,15 @@
   }
   #warning {
     @include partial.pText($width: 100%);
-    color: var(--red);
-    margin-top: 1.5rem;
-    text-align: center;
+    @include partial.dashInfoText;
+  }
+  #goodInfo {
+    @include partial.pText($width: 100%);
+    @include partial.dashInfoText($color: var(--green));
   }
   .refresh {
     @include partial.flex($gap: 0.2rem);
-    span{
+    span {
       font-size: 1.65rem;
     }
   }
@@ -111,6 +114,10 @@
           font-size: 1.6rem !important;
         }
       }
+    }
+    #warning,
+    #goodInfo {
+      font-size: 1.8rem !important;
     }
   }
 }

@@ -85,6 +85,7 @@ textarea {
 .Toastify__toast-body {
   font-family: "Inter", sans-serif !important;
 }
+
 /* Styles for Toastify and React-Confirm-Alert*/
 
 @media screen and (max-width: 768px) {

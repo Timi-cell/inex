@@ -257,7 +257,12 @@ const forgotPassword = asyncHandler(async (req, res) => {
   const send_from = process.env.EMAIL_USER;
   try {
     await sendEmail(subject, message, send_to, send_from);
-    res.status(200).json({ success: true, message: "Reset Email Sent, Please check your email." });
+    res
+      .status(200)
+      .json({
+        success: true,
+        message: "Reset Email Sent, Please check your email.",
+      });
   } catch (error) {
     res.status(500);
     throw new Error("Email not sent, please try again");
@@ -331,7 +336,7 @@ const deleteUser = asyncHandler(async (req, res) => {
     sameSite: "none",
     secure: true,
   });
- 
+
   let user = await User.findById(req.user._id);
 
   if (user) {

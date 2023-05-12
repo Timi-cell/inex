@@ -145,10 +145,8 @@ const itemSlice = createSlice({
       });
     });
     builder.addCase(addItem.rejected, (state, action) => {
-      const { allItems, item } = action.payload;
-      state.items = allItems;
       state.loadingStatus = "failed";
-      toast.success(`${item.type} added!`, {
+      toast.error(action.payload.message, {
         position: toast.POSITION.TOP_LEFT,
       });
     });

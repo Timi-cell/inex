@@ -19,7 +19,6 @@ import { getLoginStatus } from "./services/authService";
 import EditProfile from "./pages/profile/EditProfile";
 axios.defaults.withCredentials = true;
 
-
 const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
