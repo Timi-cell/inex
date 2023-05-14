@@ -17,7 +17,9 @@ import colors from "color-name";
 
 const Chart = () => {
   useRedirectLoggedOutUser("/login");
-  const { items, userCurrency } = useSelector((state) => state.item);
+  const { items, userCurrency, loadingStatus } = useSelector(
+    (state) => state.item
+  );
   const [incItems, setIncItems] = useState([]);
   const [expItems, setExpItems] = useState([]);
   const dispatch = useDispatch();
@@ -85,7 +87,10 @@ const Chart = () => {
   }, [dispatch]);
   useEffect(() => {
     function setAll() {
-      dispatch(getItems());
+      if (loadingStatus === "idle") {
+        dispatch(getItems());
+      }
+
       if (items.length > 0) {
         // setAllItems(items);
         const allInc = items.filter((item) => item.type === "Income");
@@ -95,7 +100,7 @@ const Chart = () => {
       }
     }
     setAll();
-  }, [dispatch, items]);
+  }, [dispatch, items, loadingStatus]);
 
   return (
     <div className="chart">
