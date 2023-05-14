@@ -18,7 +18,6 @@ import colors from "color-name";
 const Chart = () => {
   useRedirectLoggedOutUser("/login");
   const { items, userCurrency } = useSelector((state) => state.item);
-  const [allItems, setAllItems] = useState([]);
   const [incItems, setIncItems] = useState([]);
   const [expItems, setExpItems] = useState([]);
   const dispatch = useDispatch();
@@ -82,11 +81,13 @@ const Chart = () => {
     }
   }
   useEffect(() => {
+    dispatch(SET_IS_OPEN(false));
+  }, [dispatch]);
+  useEffect(() => {
     function setAll() {
       dispatch(getItems());
-      dispatch(SET_IS_OPEN(false));
       if (items.length > 0) {
-        setAllItems(items);
+        // setAllItems(items);
         const allInc = items.filter((item) => item.type === "Income");
         const allExp = items.filter((item) => item.type === "Expense");
         setIncItems(allInc);
@@ -94,10 +95,11 @@ const Chart = () => {
       }
     }
     setAll();
-  }, [allItems, dispatch, items]);
+  }, [dispatch, items]);
 
   return (
     <div className="chart">
+      <h2>Chart</h2>
       {/* INCOME CHART */}
       {incItems.length > 0 ? (
         <div className="--mt1 pieChart">

@@ -5,9 +5,11 @@
   @include partial.flex($dir: column, $align: flex-start);
   h2 {
     text-align: center;
+    padding: 2rem;
   }
   p {
-    font-size: 2rem;
+    padding: 2rem;
+    font-size: 2rem; 
   }
   .pieChart {
     height: 50rem;
