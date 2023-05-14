@@ -20,6 +20,7 @@ import { toast } from "react-toastify";
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import { SET_ITEMS_INFO } from "../../redux/features/item/itemSlice";
+import useRedirectLoggedOutUser from "../../customHook/useRedirectLoggedOutUser";
 
 const eye = <AiFillEye size={25} color="#eee" />;
 const eyeHide = <AiFillEyeInvisible size={25} color="#eee" />;
@@ -36,6 +37,7 @@ const userInitialInfo = {
   createdAt: "",
 };
 const Profile = () => {
+  useRedirectLoggedOutUser("/login");
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
   const navigate = useNavigate();

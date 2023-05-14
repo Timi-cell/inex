@@ -5,6 +5,7 @@ import { getUserReport } from "../../services/authService";
 import Loader from "../../components/loader/Loader";
 import { SET_IS_OPEN } from "../../redux/features/auth/authSlice";
 import { useDispatch } from "react-redux";
+import useRedirectLoggedOutUser from "../../customHook/useRedirectLoggedOutUser";
 
 
 const initialState = {
@@ -12,6 +13,8 @@ const initialState = {
   message: "",
 };
 const Report = () => {
+  useRedirectLoggedOutUser("/login");
+
   const [data, setData] = useState(initialState);
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();

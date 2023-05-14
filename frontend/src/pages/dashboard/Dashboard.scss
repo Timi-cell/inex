@@ -1,6 +1,7 @@
 @use "../../components/partials/partial";
 
 .dash {
+  padding: 2rem;
   .top,
   .sf {
     @include partial.flex;

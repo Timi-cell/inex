@@ -11,8 +11,10 @@ import { getUser, updateUser } from "../../services/authService";
 import Loader from "../../components/loader/Loader";
 import { toast } from "react-toastify";
 import { SET_NAME } from "../../redux/features/auth/authSlice";
+import useRedirectLoggedOutUser from "../../customHook/useRedirectLoggedOutUser";
 
 const EditProfile = () => {
+  useRedirectLoggedOutUser("/login");
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector(selectUser);

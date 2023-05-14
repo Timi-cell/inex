@@ -90,7 +90,7 @@ const TopBar = () => {
       <div className={`topbar-content mob ${isOpen ? "showMob" : ""}`}>
         <Links to="/dashboard" title="Dashboard" />
         <Links to="/profile" title="Profile" />
-        {/* <Links to="/chart" title="Chart" /> */}
+        <Links to="/chart" title="Chart" />
         <Links to="/report" title="Report Bug" />
         <button className="--btn --btn-primary" onClick={confirmLogOut}>
           Logout

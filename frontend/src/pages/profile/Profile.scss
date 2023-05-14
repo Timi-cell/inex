@@ -2,6 +2,7 @@
 
 .profile,
 .editprofile {
+  padding: 2rem;
   .profile-content {
     @include partial.flex($justify: flex-start, $gap: 3rem);
 

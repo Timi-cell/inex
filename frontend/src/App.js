@@ -9,7 +9,7 @@ import Reset from "./pages/auth/Reset";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Layout from "./components/layout/Layout";
 import Profile from "./pages/profile/Profile";
-// import Chart from "./pages/chart/Chart";
+import Chart from "./pages/chart/Chart";
 import Report from "./pages/report/Report";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -62,14 +62,14 @@ const App = () => {
               </Layout>
             }
           />
-          {/* <Route
+          <Route
             path="/chart"
             element={
               <Layout>
                 <Chart />
               </Layout>
             }
-          /> */}
+          />
           <Route
             path="/report"
             element={

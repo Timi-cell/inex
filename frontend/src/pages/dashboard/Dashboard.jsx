@@ -233,7 +233,7 @@ const Dashboard = () => {
     //   dispatch(SET_CURRENCY(currency));
     // }
     if (items.length > 0) {
-      console.log(items);
+      // console.log(items);
       dispatch(SET_CURRENCY(items[0].currency));
     } else {
       dispatch(SET_CURRENCY(""));

@@ -1,0 +1,19 @@
+@use "../../components/partials/partial";
+
+.chart {
+  padding: 1rem;
+  @include partial.flex($dir: column, $align: flex-start);
+  h2 {
+    text-align: center;
+  }
+  p {
+    font-size: 2rem;
+  }
+  .pieChart {
+    height: 50rem;
+    width: 100%;
+  }
+  .exp {
+    margin-top: 3.5rem;
+  }
+}
